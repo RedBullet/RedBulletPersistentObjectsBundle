@@ -7,12 +7,16 @@
     <parameters>
         <parameter key="red_bullet_persistent_objects.manager.class">RedBullet\PersistentObjectsBundle\PersistentObject\Manager</parameter>
         <parameter key="red_bullet_persistent_objects.manager.storage_path">%kernel.root_dir%/data/persistentObjects</parameter>
+        <parameter key="red_bullet_persistent_objects.manager.new_dir_mode">0755</parameter>
+        <parameter key="red_bullet_persistent_objects.manager.new_file_mode">0644</parameter>
     </parameters>
 
     <services>
         <service id="red_bullet_persistent_objects.manager" class="%red_bullet_persistent_objects.manager.class%">
             <argument>%red_bullet_persistent_objects.manager.storage_path%</argument>
             <argument>%red_bullet_persistent_objects.mapping%</argument>
+            <argument>%red_bullet_persistent_objects.manager.new_dir_mode%</argument>
+            <argument>%red_bullet_persistent_objects.manager.new_file_mode%</argument>
         </service>
     </services>
 
