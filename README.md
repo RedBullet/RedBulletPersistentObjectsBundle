@@ -25,7 +25,7 @@ Put the code into your vendor directory: /vendors/bundles/RedBullet/PersistentOb
 For git install:
 
 add
-```yml
+```yaml
 [RedBulletPersistentObjectsBundle]
     git=https://github.com/RedBullet/RedBulletPersistentObjectsBundle.git
     target=/bundles/RedBullet/PersistentObjectsBundle
@@ -78,7 +78,7 @@ $manager->persist('name');
 ```
 
 ### Retrieving an object
-``` php
+```php
 $manager = $container->get('red_bullet_persistent_objects.manager');
 $object = $manager->get('name');
 ```
