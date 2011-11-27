@@ -35,7 +35,7 @@ to your deps file
 and then run ```bash php bin/vendors update ``` from your applications root directory
 or use submodules if that's your thing (and I doubt you need that explaining)
 
-# Plug it into your app
+### Plug it into your app
 
 in /app/AppKernel.php add
 ```php
@@ -58,7 +58,7 @@ Usage
 Once installed you configure the application by adding a name and a namespaced
 class path for each of the objects you want to persist.
 
-```yml
+```yaml
 red_bullet_persistent_objects:
     mapping:
         name: Namespace\To\Class
@@ -68,7 +68,7 @@ red_bullet_persistent_objects:
 Then in your application you can interface with the objects with the object
 manager
 
-# Storing an object
+### Storing an object
 
 ```php
 $manager = $container->get('red_bullet_persistent_objects.manager');
@@ -77,7 +77,7 @@ $manager->set('name', $object);
 $manager->persist('name');
 ```
 
-# Retrieving an object
+### Retrieving an object
 ``` php
 $manager = $container->get('red_bullet_persistent_objects.manager');
 $object = $manager->get('name');
