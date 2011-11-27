@@ -25,6 +25,7 @@ Put the code into your vendor directory: /vendors/bundles/RedBullet/PersistentOb
 For git install:
 
 add
+
 ```yaml
 [RedBulletPersistentObjectsBundle]
     git=https://github.com/RedBullet/RedBulletPersistentObjectsBundle.git
@@ -32,18 +33,20 @@ add
 ```
 to your deps file
 
-and then run ```bash php bin/vendors update ``` from your applications root directory
+and then run `` php bin/vendors update `` from your applications root directory
 or use submodules if that's your thing (and I doubt you need that explaining)
 
 ### Plug it into your app
 
 in /app/AppKernel.php add
+
 ```php
     new RedBullet\PersistentObjectsBundle\RedBulletPersistentObjectsBundle()
 ```
 to the $bundles array
 
 in /app/autoload.php add
+
 ```php
     'RedBullet'        => __DIR__.'/../vendor/bundles'
 ```
