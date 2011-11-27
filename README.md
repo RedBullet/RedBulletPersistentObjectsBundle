@@ -25,30 +25,28 @@ Put the code into your vendor directory: /vendors/bundles/RedBullet/PersistentOb
 For git install:
 
 add
-```
+```yml
 [RedBulletPersistentObjectsBundle]
     git=https://github.com/RedBullet/RedBulletPersistentObjectsBundle.git
     target=/bundles/RedBullet/PersistentObjectsBundle
 ```
 to your deps file
 
-and then run
- ``` bash
-php bin/vendors update
-```
+and then run ```bash php bin/vendors update ``` from your applications root directory
 or use submodules if that's your thing (and I doubt you need that explaining)
 
 # Plug it into your app
 
 in /app/AppKernel.php add
-``` php
+```php
     new RedBullet\PersistentObjectsBundle\RedBulletPersistentObjectsBundle()
 ```
 to the $bundles array
 
 in /app/autoload.php add
-``` php
+```php
     'RedBullet'        => __DIR__.'/../vendor/bundles'
+```
 
 to the array argument of the registerNamespaces method.
 
@@ -60,7 +58,7 @@ Usage
 Once installed you configure the application by adding a name and a namespaced
 class path for each of the objects you want to persist.
 
-``` yml
+```yml
 red_bullet_persistent_objects:
     mapping:
         name: Namespace\To\Class
@@ -72,7 +70,7 @@ manager
 
 # Storing an object
 
-``` php
+```php
 $manager = $container->get('red_bullet_persistent_objects.manager');
 $object = new Namespace\To\Class();
 $manager->set('name', $object);
@@ -90,6 +88,16 @@ although they can be mixed case they must be unique case-insensitively.
 
 Any class can be stored so long as it can be serialized safely.
 
+Objects are by default stored in: ``%kernel.root_dir%/data/persistentObjects``
+which must be writable by the application. The bundle will try create the
+directory if it does not exist.
+
+You can change this by adding a parameter for red_bullet_persistent_objects.manager.storage_path
+
+By default directories that are created by this bundle have 0755 mode and files
+created have 0644. This can be changed by setting parameters for
+red_bullet_persistent_objects.manager.new_dir_mode and
+red_bullet_persistent_objects.manager.new_file_mode
 
 License
 -------
